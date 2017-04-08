@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>title</title>
+    <title>Βοηθός Προπονητή</title>
     <link rel="stylesheet" href="style.css">
     <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/favicons/train-152-191529.png">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicons/train-144-191529.png">
@@ -28,44 +28,66 @@
             <h1 class="top-margin-0">Ρυθμός</h1>
             <p class="top-margin-neg10">Χρόνος - Απόσταση</p>
         </div>
-        <div class="epikef w3-card-4" style="margin: auto;  width: 60%;margin-top: 10px;padding: 10px;display:none">
+        <div class="epikef w3-card-4" style="margin: auto;  width: 95%;margin-top: 10px;padding: 10px;display: none">
+            <!--display: none -->
             <div id="paceFromDistance" class="w3-display-container">
                 <div class="w3-center">
-                    <input id="hours" class="w3-input w3-center" min="0" type="number" value="0" name="hours" style="width:50%;margin:auto" />
-                    <label for="hours">Ώρες</label>
-                    <input id="minutes" class="w3-input w3-center" min="0" max="59" type="number" value="0" style="width:50%;margin:auto" />
-                    <label for="minutes">Λεπτά</label>
-                    <input id="seconds" class="w3-input w3-center" min="0" max="59" type="number" value="0" style="width:50%;margin:auto" />
-                    <label for="seconds">Δευτερόλεπτα</label>
-                    <input id="apostasi" class="w3-input w3-center" type="number" min="0" value="0" style="width:50%;margin:auto" />
-                    <label for="apostasi">Απόσταση (ΚΜ)</label>
+                    <div style="padding: 5px;" class="w3-sand w3-leftbar margin-bottom-5">
+                        <div style="display:inline-flex;">
+                            <input id="hours" class="CalcRythm w3-input w3-center" min="0" max="365" type="number" value="0" style="display:inline-flex;margin:auto" />
+                        </div>
+                        <div style="display:inline-flex;">
+                            <input id="minutes" class="CalcRythm w3-input w3-center" min="0" max="59" type="number" value="0" style="display:inline-flex;margin:auto" />
+                        </div>
+                        <div style="display:inline-flex;">
+                            <input id="seconds" class="CalcRythm w3-input w3-center" min="0" max="59" type="number" value="0" style="display:inline-flex;margin:auto" />
+                        </div>
+                        <div>Χρόνος(<label for="hours">Ω:</label>
+                            <label for="minutes">Λ:</label>
+                            <label for="seconds">Δ</label>):</div>
+                    </div>
+                    <div style="padding: 5px;" class="w3-sand w3-leftbar margin-bottom-5">
+                        <input id="apostasi" class="CalcRythm w3-input w3-center" type="number" min="0" max="50000" value="0" style="width:30%;margin:auto" />
+                        <label for="apostasi">Απόσταση (ΚΜ)</label>
+                    </div>
+
                 </div>
-                <div id="result" class="w3-container w3-green" style="display: none">
-                    <div id="t" class="centerText"></div>
+                <div id="resultCalcRythm" class="w3-container w3-green" style="display: none">
+                    <div id="results-CalcRythm" class="centerText"></div>
                 </div>
             </div>
         </div>
     </div>
+
     <div>
         <!-- Απόσταση από Χρόνο και Ρυθμό -->
         <div id="showTimeFromPace" class="epik  w3-container w3-center w3-lime">
             <h1 class="top-margin-0">Χρόνος</h1>
             <p class="top-margin-neg10">Ρυθμός - Απόσταση</p>
         </div>
-        <div class="epikef w3-card-4" style="margin: auto;  width: 60%;margin-top: 10px;padding: 10px;display:none">
+        <div class="epikef w3-card-4" style="margin: auto;  width: 95%;margin-top: 10px;padding: 10px;display: none">
+            <!--display: none -->
             <div id="timeFromPace" class="w3-display-container">
                 <div class="w3-center">
-                    <input id="hours" class="w3-input w3-center" min="0" type="number" value="0" name="hours" style="width:50%;margin:auto" />
-                    <label for="hours">Ώρες</label>
-                    <input id="minutes" class="w3-input w3-center" min="0" max="59" type="number" value="0" style="width:50%;margin:auto" />
-                    <label for="minutes">Λεπτά</label>
-                    <input id="seconds" class="w3-input w3-center" min="0" max="59" type="number" value="0" style="width:50%;margin:auto" />
-                    <label for="seconds">Δευτερόλεπτα</label>
-                    <input id="apostasi" class="w3-input w3-center" type="number" min="0" value="0" style="width:50%;margin:auto" />
-                    <label for="apostasi">Απόσταση (ΚΜ)</label>
+                    <div style="padding: 5px;" class="w3-sand w3-leftbar margin-bottom-5">
+                        <div style="display:inline-flex;">
+                            Ρυθμός(<label for="Rminutes">Λ:</label>
+                            <label for="Rseconds">Δ</label>):
+                        </div>
+                        <div class="w3-red" style="display:inline-flex;">
+                            <input id="Rminutes" class="CalcTime w3-input w3-center" min="0" max="59" type="number" value="0" style="display:inline-flex;margin:auto" />
+                        </div>
+                        <div class="w3-blue" style="display:inline-flex;">
+                            <input id="Rseconds" class="CalcTime w3-input w3-center" min="0" max="59" type="number" value="0" style="display:inline-flex;margin:auto" />
+                        </div>
+                    </div>
+                    <div style="padding: 5px;" class="w3-sand w3-leftbar margin-bottom-5">
+                        <input id="Rapostasi" class="CalcTime w3-input w3-center" type="number" min="0" value="0" style="width:30%;margin:auto" />
+                        <label for="Rapostasi">Απόσταση (ΚΜ)</label>
+                    </div>
                 </div>
-                <div id="result" class="w3-container w3-green" style="display: none">
-                    <div id="t" class="centerText"></div>
+                <div id="resultCalcTime" class="w3-container w3-green" style="display: none">
+                    <div id="results-CalcTime" class="centerText"></div>
                 </div>
             </div>
         </div>

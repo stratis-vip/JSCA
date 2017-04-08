@@ -1,8 +1,18 @@
     let pac = new Pace();
+    let epilogeas = 0;
     $(document).ready(function() {
         $(document).on("PaceCalculateError", { foo: "bar" }, function(event, arg1, arg2) {
-            $('#result').removeClass('w3-green').addClass('w3-red').show();
-            $('#t').text(arg1);
+            switch (epilogeas) {
+                case 1:
+                    $('#resultCalcRythm').removeClass('w3-green').addClass('w3-red').show();
+                    $('#results-CalcRythm').text(arg1);
+
+                    break;
+                case 2:
+                    $('#resultCalcTime').removeClass('w3-green').addClass('w3-red').show();
+                    $('#results-CalcTime').text(arg1);
+                    break;
+            }
             pac.errorMsg = arg2;
 
             console.log(pac.errorMsg); // "bar"
@@ -15,7 +25,8 @@
 
         console.log("ready!");
         // $("#paceFromDistance").hide();
-        $("input").on('change', calculatePaceFromIput);
+        $("input.CalcRythm").on('input', calculatePaceFromIput);
+        $("input.CalcTime").on('input', calculateTimeFromIput);
         $("#showPaceFromDistance").on('click', function() {
             if ($("#paceFromDistance").is(":visible")) {
                 $("#paceFromDistance").parent().slideUp().hide(0);
@@ -44,17 +55,54 @@
     }
 
     function calculatePaceFromIput() {
-
+        epilogeas = 1;
         pac.hours = Number($('#hours').val());
         pac.minutes = Number($('#minutes').val());
         pac.seconds = Number($('#seconds').val());
         pac.distance = Number($('#apostasi').val());
         pac.DecPace = pac.toDecimalPace();
         if (pac.errorMsg === 0) {
-            $('#result').addClass('w3-green').removeClass('w3-red');
-            $('#t').html(
+            $('#resultCalcRythm').addClass('w3-green').removeClass('w3-red');
+            $('#results-CalcRythm').html(
                 pac.toString() + " (ΛΛ:ΔΔ:ΕΕ)<br />" + pac.toDecimalPace().toFixed(2) + " (Λεπτά/Χλμ)");
         }
+    }
+
+    function calculateTimeFromIput() {
+        epilogeas = 2;
+        var dis = Number($('#Rapostasi').val());
+        var m = Number($('#Rminutes').val());
+        var s = Number($('#Rseconds').val());
+        if (m + s === 0 || dis === 0) {
+            $(document).trigger("PaceCalculateError", ["Δεν έχει ορισθεί απόσταση ή (και) χρόνος.", 200]);
+        } else {
+            $('#resultCalcTime').addClass('w3-green').removeClass('w3-red').show();
+            let temp = (m + (s * 10 / 600)) * dis;
+            $('#results-CalcTime').text(
+                DecTimeToTime(temp));
+        }
+
+    }
+
+    function DecTimeToTime(dTime) {
+        let hourPart = Math.floor(dTime / 60);
+        let apotelesma = "";
+        if (hourPart < 10) { apotelesma += "0"; }
+        apotelesma += hourPart + ":";
+        dTime -= hourPart * 60;
+        let minPart = Math.floor(dTime);
+        if (minPart < 10) { apotelesma += "0"; }
+        apotelesma += minPart + ":";
+        dTime -= minPart;
+        let secPart = Math.floor(dTime * 60);
+        if (secPart < 10) { apotelesma += "0"; }
+        apotelesma += secPart + ".";
+        dTime = dTime * 60 - secPart;
+        let milPart = Math.floor(dTime * 100);
+        if (milPart === 0) { apotelesma += "00" } else {
+            if (milPart < 10) { apotelesma += "0"; } else { apotelesma += milPart }
+        }
+        return apotelesma;
     }
 
     /* Object Pace*/
