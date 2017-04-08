@@ -17,20 +17,31 @@
         // $("#paceFromDistance").hide();
         $("input").on('change', calculatePaceFromIput);
         $("#showPaceFromDistance").on('click', function() {
-
-            if ($("#paceFromDistance").is(":visible")) { $("#paceFromDistance").parent().slideUp().hide(0); } else {
+            if ($("#paceFromDistance").is(":visible")) {
+                $("#paceFromDistance").parent().slideUp().hide(0);
+                $("#paceFromDistance").parent().parent().removeClass("margin-bottom-15");
+            } else {
                 $("#paceFromDistance").parent().slideDown();
-                //  $("#paceFromDistance").;
+                $("#paceFromDistance").parent().parent().addClass("margin-bottom-15");
+
             }
-        })
-    });
-    /*
-    $(document).ready(function(){
-        /*
-        
+        });
+        $("#showTimeFromPace").on('click', function() {
+            if ($("#timeFromPace").is(":visible")) { $("#timeFromPace").parent().slideUp().hide(0); } else {
+                $("#timeFromPace").parent().slideDown();
+            }
+        });
+        $(".epik").on('click', closeOtherEpikefalides);
 
     });
-    */
+
+    //function για να κλείνει όλες τις άλλες επικεφαλίδες
+
+    function closeOtherEpikefalides() {
+        $(".epik").not(this).next().slideUp().parent().removeClass('margin-bottom-15');
+        //$(".epikef").not(this).slideUp().removeClass('margin-bottom-15');
+
+    }
 
     function calculatePaceFromIput() {
 

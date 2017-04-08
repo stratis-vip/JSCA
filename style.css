@@ -1,5 +1,9 @@
-.margin-bootom-5 {
+.margin-bottom-5 {
     margin-bottom: 5px;
+}
+
+.margin-bottom-15 {
+    margin-bottom: 15px;
 }
 
 .centerText {
