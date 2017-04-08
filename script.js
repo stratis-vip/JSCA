@@ -18,7 +18,10 @@
         $("input").on('change', calculatePaceFromIput);
         $("#showPaceFromDistance").on('click', function() {
 
-            if ($("#paceFromDistance").is(":visible")) { $("#paceFromDistance").slideUp(); } else { $("#paceFromDistance").slideDown(); }
+            if ($("#paceFromDistance").is(":visible")) { $("#paceFromDistance").parent().slideUp().hide(0); } else {
+                $("#paceFromDistance").parent().slideDown();
+                //  $("#paceFromDistance").;
+            }
         })
     });
     /*
