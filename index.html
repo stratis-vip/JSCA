@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="el">
+
+<head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/favicons/train-152-191529.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicons/train-144-191529.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/favicons/train-120-191529.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/favicons/train-114-191529.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/favicons/train-72-191529.png">
+    <link rel="apple-touch-icon-precomposed" href="/favicons/train-57-191529.png">
+    <link rel="icon" href="/favicons/train-32-191529.png" sizes="32x32">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <!-- page content -->
+    <div id="showPaceFromDistance" class="w3-container w3-center w3-blue">
+        <h1>Χρόνος - Απόσταση</h1>
+    </div>
+    <div class="w3-card-4" style="margin: auto;  width: 60%;margin-top: 10px;padding: 10px">
+        <div id="paceFromDistance" class="w3-display-container">
+            <div class="w3-center">
+                <input id="hours" class="w3-input w3-center" min="0" type="number" value="0" name="hours" style="width:50%;margin:auto" />
+                <label for="hours">Ώρες</label>
+                <input id="minutes" class="w3-input w3-center" min="0" max="59" type="number" value="0" style="width:50%;margin:auto" />
+                <label for="minutes">Λεπτά</label>
+                <input id="seconds" class="w3-input w3-center" min="0" max="59" type="number" value="0" style="width:50%;margin:auto" />
+                <label for="seconds">Δευτερόλεπτα</label>
+                <input id="apostasi" class="w3-input w3-center" type="number" min="0" value="0" style="width:50%;margin:auto" />
+                <label for="apostasi">Απόσταση (ΚΜ)</label>
+            </div>
+
+        </div>
+        <div id="result" class="w3-container w3-green">
+            <h2 class="w3-center">Ρυθμός</h2>
+            <div id="t" class="centerText"></div>
+
+        </div>
+    </div>
+
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
