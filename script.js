@@ -1,7 +1,8 @@
     let pac = new Pace();
     $(document).ready(function() {
         $(document).on("PaceCalculateError", { foo: "bar" }, function(event, arg1, arg2) {
-            $('#result').removeClass('w3-green').addClass('w3-red');
+            $('#result').removeClass('w3-green').addClass('w3-red').show();
+            $('#t').text(arg1);
             pac.errorMsg = arg2;
 
             console.log(pac.errorMsg); // "bar"
@@ -38,8 +39,8 @@
         if (pac.errorMsg === 0) {
             $('#result').addClass('w3-green').removeClass('w3-red');
             $('#t').html(
-                pac.toString() + " (" + pac.toDecimalPace().toFixed(2) + ") Min/Km");
-        } else { $('#t').html(""); }
+                pac.toString() + " (ΛΛ:ΔΔ:ΕΕ)<br />" + pac.toDecimalPace().toFixed(2) + " (Λεπτά/Χλμ)");
+        }
     }
 
     /* Object Pace*/

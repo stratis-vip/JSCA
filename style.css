@@ -6,6 +6,10 @@
     text-align: center;
 }
 
+.top-margin-neg10 {
+    margin-top: -10px;
+}
+
 label {
     margin-bottom: 8px;
 }
