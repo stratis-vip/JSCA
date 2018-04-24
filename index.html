@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <title>Βοηθός Προπονητή</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/favicons/train-152-191529.png">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicons/train-144-191529.png">
     <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/favicons/train-120-191529.png">
@@ -13,18 +12,9 @@
     <link rel="apple-touch-icon-precomposed" href="/favicons/train-57-191529.png">
     <link rel="icon" href="/favicons/train-32-191529.png" sizes="32x32">
 
-
-    <!-- bootstrap version -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
-
-
-    <!-- old version start -->
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1"> 
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script> -->
-    <!-- old version stop  -->
 
 
 </head>
@@ -32,25 +22,25 @@
 <body>
     <div class="container my-3">
         <div class="card">
-            <div class="card-header bg-primary" data-toggle="collapse" data-target="#collapseOne">
-                <div class="mb-0 h1 text-white centerText">
+            <div class="card-header bg-primary" data-toggle="collapse" data-target="#paceCard">
+                <div class="mb-0 h1 text-white text-center">
                     Ρυθμός
                     <div class="lead">Υπολογισμός του ρυθμού με βάση τον χρόνο και την απόσταση</div>
                 </div>
             </div>
-            <div id="collapseOne" class="collapse hide" aria-labelledby="headingOne">
+            <div id="paceCard" class="collapse hide">
                 <div class="card-body">
-                    <div class="centerText">
+                    <div class="text-center">
                         <div class="p-3 mb-1 bg-light">
                             <div style="display:inline-flex;">
-                                <input id="hours" class="CalcRythm text-center" min="0" max="365" type="number" value="0" style="display:inline-flex;" />
+                                <input id="hours" class=".form-control CalcRythm text-center" min="0" max="365" type="number" value="0" style="display:inline-flex;" />
                             </div>
                             <div style="display:inline-flex;">
-                                <input id="minutes" class="CalcRythm text-center" min="0" max="59" type="number" value="0" style="display:inline-flex;margin:auto"
+                                <input id="minutes" class=".form-control CalcRythm text-center" min="0" max="59" type="number" value="0" style="display:inline-flex;margin:auto"
                                 />
                             </div>
                             <div style="display:inline-flex;">
-                                <input id="seconds" class="CalcRythm text-center" min="0" max="59" type="number" value="0" style="display:inline-flex;margin:auto"
+                                <input id="seconds" class=".form-control CalcRythm text-center" min="0" max="59" type="number" value="0" style="display:inline-flex;margin:auto"
                                 />
                             </div>
                             <div>Χρόνος(
@@ -59,7 +49,7 @@
                                 <label for="seconds">Δ</label>):</div>
                         </div>
                         <div class="p-3 mb-1 bg-light">
-                            <input id="apostasi" class="CalcRythm  text-center" type="number" min="0" max="50000" value="0" style="width:30%;margin:auto"
+                            <input id="apostasi" class=".form-control CalcRythm  text-center" type="number" min="0" max="50000" value="0" style="width:30%;margin:auto"
                             />
                             <div>
                                 <label for="apostasi">Απόσταση (ΚΜ)</label>
@@ -68,64 +58,55 @@
 
                     </div>
                     <div id="resultCalcRythm" class="bg-success" style="display: none">
-                        <div id="results-CalcRythm" class="centerText"></div>
+                        <div id="results-CalcRythm" class="text-center"></div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="card">
-            <div class="card-header bg-info" data-toggle="collapse" data-target="#collapseTwo">
-                <div class="mb-0 h1 text-white centerText">
+            <div class="card-header bg-info" data-toggle="collapse" data-target="#timeCard">
+                <div class="mb-0 h1 text-white text-center">
                     Χρόνος
                     <div class="lead">Υπολογισμός του χρόνου με βάση τον ρυθμό και την απόσταση</div>
                 </div>
             </div>
-            <div id="collapseTwo" class="collapse show">
+            <div id="timeCard" class="collapse hide">
                 <div class="card-body">
-                    <div class="centerText">
+                    <div class="text-center">
                         <div class="p-3 mb-1 bg-light">
 
                             <div>
-                                <div style="display:inline-flex;">
+                                <div >
                                     Ρυθμός(
                                     <label for="Rminutes">Λ:</label>
                                     <label for="Rseconds">Δ</label>):
                                 </div>
-                                <div class="bg-danger" style="display:inline-flex;">
-                                    <input id="Rminutes" class="CalcTime  text-center" min="0" max="59" type="number" value="0" style="display:inline-flex;margin:auto"
+                                <div style="display:inline-flex;">
+                                    <input id="Rminutes" class=".form-control CalcTime  text-center" min="0" max="59" type="number" value="0" style="display:inline-flex;margin:auto"
                                     />
                                 </div>
-                                <div class="w3-blue" style="display:inline-flex;">
-                                    <input id="Rseconds" class="CalcTime  text-center" min="0" max="59" type="number" value="0" style="display:inline-flex;margin:auto"
+                                <div style="display:inline-flex;">
+                                    <input id="Rseconds" class=".form-control CalcTime  text-center" min="0" max="59" type="number" value="0" style="display:inline-flex;margin:auto"
                                     />
                                 </div>
                             </div>
-
                         </div>
-
                         <div class="p-3 mb-1 bg-light">
                             <div>
-                                <input id="Rapostasi" class="CalcTime text-center" type="number" min="0" value="0" style="width:30%;margin:auto" />
+                                <input id="Rapostasi" class=".form-control CalcTime text-center" type="number" min="0" value="0" style="width:30%;margin:auto" />
                                 <div>
                                     <label for="Rapostasi">Απόσταση (ΚΜ)</label>
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
-                    <div id="resultCalcTime" class="w3-container bg-success" style="display: none">
-                        <div id="results-CalcTime" class="centerText"></div>
+                    <div id="resultCalcTime" class="bg-success" style="display: none">
+                        <div id="results-CalcTime" class="text-center"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
-
     <!-- bootstrap start -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -134,7 +115,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
     <script src="script.js?v=1.2"></script>
-
 
 </body>
 
