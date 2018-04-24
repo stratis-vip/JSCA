@@ -4,12 +4,12 @@
         $(document).on("PaceCalculateError", { foo: "bar" }, function(event, arg1, arg2) {
             switch (epilogeas) {
                 case 1:
-                    $('#resultCalcRythm').removeClass('w3-green').addClass('w3-red').show();
+                    $('#resultCalcRythm').removeClass('bg-success').addClass('bg-danger').show();
                     $('#results-CalcRythm').text(arg1);
 
                     break;
                 case 2:
-                    $('#resultCalcTime').removeClass('w3-green').addClass('w3-red').show();
+                    $('#resultCalcTime').removeClass('bg-success').addClass('bg-danger').show();
                     $('#results-CalcTime').text(arg1);
                     break;
             }
@@ -62,7 +62,7 @@
         pac.distance = Number($('#apostasi').val());
         pac.DecPace = pac.toDecimalPace();
         if (pac.errorMsg === 0) {
-            $('#resultCalcRythm').addClass('w3-green').removeClass('w3-red');
+            $('#resultCalcRythm').addClass('bg-success').removeClass('bg-danger');
             $('#results-CalcRythm').html(
                 pac.toString() + " (ΛΛ:ΔΔ:ΕΕ)<br />" + pac.toDecimalPace().toFixed(2) + " (Λεπτά/Χλμ)");
         }
@@ -76,7 +76,7 @@
         if (m + s === 0 || dis === 0) {
             $(document).trigger("PaceCalculateError", ["Δεν έχει ορισθεί απόσταση ή (και) χρόνος.", 200]);
         } else {
-            $('#resultCalcTime').addClass('w3-green').removeClass('w3-red').show();
+            $('#resultCalcTime').addClass('bg-success').removeClass('bg-danger').show();
             let temp = (m + (s * 10 / 600)) * dis;
             $('#results-CalcTime').text(
                 DecTimeToTime(temp));
@@ -99,8 +99,8 @@
         apotelesma += secPart + ".";
         dTime = dTime * 60 - secPart;
         let milPart = Math.floor(dTime * 100);
-        if (milPart === 0) { apotelesma += "00" } else {
-            if (milPart < 10) { apotelesma += "0"; } else { apotelesma += milPart }
+        if (milPart === 0) { apotelesma += "00"; } else {
+            if (milPart < 10) { apotelesma += "0"; } else { apotelesma += milPart; }
         }
         return apotelesma;
     }
